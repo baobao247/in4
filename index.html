@@ -3,15 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>bari0xit · human-AI toolbox</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Space+Grotesk:wght@400;500;600&display=swap" rel="stylesheet">
+    <title>bari0xit · vibe coder × deepseek × gemini</title>
+    <!-- Font Awesome 6.5.1 (stable — có fa-spade) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:opsz,wght@14..32,300..700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
     <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
 
         body {
             background: #d4eefe;
@@ -25,6 +22,23 @@
             justify-content: center;
             padding: 2rem 1.5rem;
             -webkit-font-smoothing: antialiased;
+        }
+
+        /* ===== ANIMATED GRADIENT TEXT ===== */
+        @keyframes vibeShift {
+            0%   { background-position: 0% 50%; }
+            50%  { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .vibe-text {
+            background: linear-gradient(90deg, #0077be, #7c3aed, #06b6d4, #0077be);
+            background-size: 300% 100%;
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+            animation: vibeShift 6s ease infinite;
+            font-weight: 700;
         }
 
         /* ===== GLASS PANEL ===== */
@@ -42,7 +56,6 @@
             padding: 3rem 2.8rem;
             transition: box-shadow 0.4s ease;
         }
-
         .glass-panel:hover {
             box-shadow:
                 0 36px 72px -24px rgba(0, 119, 182, 0.45),
@@ -71,10 +84,7 @@
                 0 0 0 3px rgba(255, 255, 255, 0.5);
             transition: transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
         }
-
-        .avatar-frame:hover {
-            transform: scale(1.05);
-        }
+        .avatar-frame:hover { transform: scale(1.05); }
 
         .avatar-frame img {
             width: 100%;
@@ -84,15 +94,9 @@
             border: 3px solid rgba(255, 255, 255, 0.9);
             transition: transform 0.4s ease;
         }
+        .avatar-frame:hover img { transform: scale(1.03) rotate(1.5deg); }
 
-        .avatar-frame:hover img {
-            transform: scale(1.03) rotate(1.5deg);
-        }
-
-        .profile hgroup {
-            flex: 1;
-            min-width: 240px;
-        }
+        .profile hgroup { flex: 1; min-width: 240px; }
 
         .profile h1 {
             font-family: 'Space Grotesk', sans-serif;
@@ -112,15 +116,31 @@
             background: rgba(255, 255, 255, 0.5);
             backdrop-filter: blur(6px);
             -webkit-backdrop-filter: blur(6px);
-            padding: 0.55rem 1.8rem;
+            padding: 0.55rem 1.6rem;
             border-radius: 60px;
-            font-size: 1.15rem;
+            font-size: 1.1rem;
             font-weight: 500;
             border: 1px solid rgba(0, 161, 255, 0.35);
             margin-top: 0.85rem;
             color: #0a4a72;
             box-shadow: 0 4px 12px rgba(0, 140, 220, 0.08);
         }
+
+        .vibe-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 7px;
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(6, 182, 212, 0.15));
+            padding: 0.35rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: 1px solid rgba(124, 58, 237, 0.45);
+            box-shadow: 0 3px 10px rgba(124, 58, 237, 0.15);
+            color: #6d28d9;
+            letter-spacing: 0.02em;
+        }
+        .vibe-badge i { color: #7c3aed; font-size: 0.95rem; }
 
         .ai-badge {
             display: inline-flex;
@@ -133,14 +153,9 @@
             font-weight: 600;
             border: 1px solid #7ec0f0;
             box-shadow: 0 3px 10px rgba(0, 128, 255, 0.18);
-            margin-left: 0.5rem;
             color: #0065a3;
         }
-
-        .ai-badge i {
-            color: #0077be;
-            font-size: 1rem;
-        }
+        .ai-badge i { color: #0077be; font-size: 1rem; }
 
         /* ===== SECTION HEADING ===== */
         .section-heading {
@@ -153,7 +168,6 @@
             align-items: center;
             gap: 12px;
         }
-
         .section-heading i {
             background: linear-gradient(145deg, #d0ebff, #a0d4ff);
             padding: 0.65rem;
@@ -161,7 +175,6 @@
             color: #0068a3;
             box-shadow: 0 4px 12px rgba(0, 140, 220, 0.15);
         }
-
         .section-heading::after {
             content: '';
             flex: 1;
@@ -201,7 +214,6 @@
             overflow: hidden;
         }
 
-        /* subtle top gradient line */
         .project-card::before {
             content: '';
             position: absolute;
@@ -214,14 +226,12 @@
             opacity: 0;
             transition: opacity 0.4s ease, left 0.4s ease, right 0.4s ease;
         }
-
         .project-card:hover::before {
             opacity: 1;
             left: 5%;
             right: 5%;
         }
 
-        /* Focus effect: dim siblings on hover */
         .project-grid:has(.project-card:hover) .project-card:not(:hover) {
             opacity: 0.65;
             filter: saturate(0.7);
@@ -247,7 +257,6 @@
             transition: transform 0.3s ease;
             display: inline-block;
         }
-
         .project-card:hover .card-icon {
             transform: scale(1.1) translateY(-2px);
         }
@@ -287,7 +296,6 @@
             color: #0e5580;
             transition: background 0.25s ease, border-color 0.25s ease;
         }
-
         .project-card:hover .tool-tags span {
             background: rgba(0, 170, 255, 0.13);
             border-color: rgba(60, 160, 230, 0.65);
@@ -313,21 +321,14 @@
             margin-top: auto;
             letter-spacing: 0.02em;
         }
-
         .btn-project:hover {
             background: linear-gradient(145deg, #003f6b, #002b4a);
             gap: 1rem;
             box-shadow: 0 8px 22px rgba(0, 60, 100, 0.45);
             transform: translateY(-1px);
         }
-
-        .btn-project i {
-            transition: transform 0.25s ease;
-        }
-
-        .btn-project:hover i {
-            transform: translateX(3px);
-        }
+        .btn-project i { transition: transform 0.25s ease; }
+        .btn-project:hover i { transform: translateX(3px); }
 
         /* ===== AI ZONE ===== */
         .ai-zone {
@@ -349,13 +350,13 @@
             margin-bottom: 1.2rem;
         }
 
-        .ai-zone .ai-header i {
+        .ai-zone .ai-header > i {
             font-size: 2.8rem;
-            background: linear-gradient(145deg, #1b8fd8, #004d80);
+            background: linear-gradient(145deg, #7c3aed, #06b6d4);
             -webkit-background-clip: text;
             background-clip: text;
             color: transparent;
-            filter: drop-shadow(0 4px 8px rgba(0, 120, 190, 0.2));
+            filter: drop-shadow(0 4px 8px rgba(124, 58, 237, 0.25));
         }
 
         .ai-zone h2 {
@@ -366,33 +367,153 @@
         }
 
         .ai-zone p {
-            font-size: 1.15rem;
+            font-size: 1.12rem;
             font-weight: 400;
-            max-width: 800px;
+            max-width: 850px;
             color: #144a6a;
             line-height: 1.7;
+            margin-bottom: 0.8rem;
+        }
+        .ai-zone p strong { color: #005a94; }
+        .ai-zone p em {
+            font-style: normal;
+            font-weight: 700;
+            color: #6d28d9;
         }
 
-        .ai-zone p strong {
-            color: #005a94;
+        /* ===== AI STACK CARDS ===== */
+        .ai-stack {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 1.2rem;
+            margin: 1.8rem 0 2rem;
         }
 
+        .ai-stack-card {
+            background: rgba(255, 255, 255, 0.7);
+            border-radius: 26px;
+            padding: 1.5rem 1.6rem;
+            border: 1px solid rgba(255, 255, 255, 0.9);
+            box-shadow: 0 10px 24px -10px rgba(0, 140, 210, 0.2);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .ai-stack-card::after {
+            content: '';
+            position: absolute;
+            top: 0; left: 0; right: 0;
+            height: 4px;
+        }
+
+        .ai-stack-card.deepseek::after {
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+        }
+        .ai-stack-card.gemini::after {
+            background: linear-gradient(90deg, #06b6d4, #3b82f6, #8b5cf6);
+        }
+
+        .ai-stack-head {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            margin-bottom: 0.7rem;
+        }
+
+        .ai-stack-logo {
+            width: 42px;
+            height: 42px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            color: white;
+            flex-shrink: 0;
+        }
+
+        .deepseek .ai-stack-logo {
+            background: linear-gradient(135deg, #4f46e5, #7c3aed);
+            box-shadow: 0 6px 14px rgba(79, 70, 229, 0.4);
+        }
+        .gemini .ai-stack-logo {
+            background: linear-gradient(135deg, #06b6d4, #8b5cf6);
+            box-shadow: 0 6px 14px rgba(6, 182, 212, 0.4);
+        }
+
+        .ai-stack-name {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #003a61;
+            line-height: 1.1;
+        }
+
+        .ai-stack-role {
+            font-size: 0.8rem;
+            color: #5a7a94;
+            font-weight: 500;
+            letter-spacing: 0.03em;
+            text-transform: uppercase;
+        }
+
+        .ai-stack-card p {
+            font-size: 0.92rem;
+            margin: 0;
+            color: #1a4a6e;
+            line-height: 1.55;
+        }
+
+        .ai-stack-bar {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 0.9rem;
+        }
+
+        .ai-stack-bar-track {
+            flex: 1;
+            height: 6px;
+            background: rgba(0, 100, 160, 0.12);
+            border-radius: 100px;
+            overflow: hidden;
+        }
+
+        .ai-stack-bar-fill {
+            height: 100%;
+            border-radius: 100px;
+        }
+
+        .deepseek .ai-stack-bar-fill {
+            width: 80%;
+            background: linear-gradient(90deg, #4f46e5, #7c3aed);
+        }
+        .gemini .ai-stack-bar-fill {
+            width: 20%;
+            background: linear-gradient(90deg, #06b6d4, #8b5cf6);
+        }
+
+        .ai-stack-pct {
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: #003a61;
+        }
+
+        /* ===== AI STATS GRID ===== */
         .ai-grid {
             display: flex;
             flex-wrap: wrap;
-            gap: 1.5rem 2.5rem;
-            margin-top: 2rem;
+            gap: 1.5rem 2rem;
+            margin-top: 1rem;
             justify-content: space-around;
         }
 
-        .ai-grid-item {
-            text-align: center;
-            min-width: 130px;
-        }
+        .ai-grid-item { text-align: center; min-width: 120px; }
 
         .ai-grid-item .number {
             font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.8rem;
+            font-size: 2.6rem;
             font-weight: 700;
             background: linear-gradient(145deg, #1b8fd8, #003f6b);
             -webkit-background-clip: text;
@@ -403,11 +524,11 @@
         }
 
         .ai-grid-item .label {
-            font-size: 0.9rem;
+            font-size: 0.88rem;
             color: #0f537b;
             background: rgba(200, 230, 255, 0.7);
             backdrop-filter: blur(4px);
-            padding: 0.45rem 1.2rem;
+            padding: 0.4rem 1.1rem;
             border-radius: 60px;
             margin-top: 0.4rem;
             font-weight: 500;
@@ -434,10 +555,16 @@
             box-shadow: 0 4px 12px rgba(0, 140, 220, 0.1);
             transition: transform 0.25s ease, box-shadow 0.25s ease;
         }
-
         .skill-set span:hover {
             transform: translateY(-2px);
             box-shadow: 0 6px 16px rgba(0, 140, 220, 0.18);
+        }
+
+        .skill-set span.vibe-skill {
+            background: linear-gradient(135deg, rgba(124, 58, 237, 0.15), rgba(6, 182, 212, 0.15));
+            border: 1px solid rgba(124, 58, 237, 0.4);
+            color: #6d28d9;
+            font-weight: 700;
         }
 
         /* ===== FOOTER ===== */
@@ -454,95 +581,41 @@
             gap: 1.2rem;
             flex-wrap: wrap;
         }
-
-        footer i {
-            font-style: normal;
-        }
-
-        footer .heart {
-            color: #e0526b;
-        }
+        footer .heart { color: #e0526b; }
+        footer .ds-mark { color: #7c3aed; font-weight: 700; }
+        footer .gm-mark { color: #06b6d4; font-weight: 700; }
 
         /* ===== RESPONSIVE ===== */
         @media (max-width: 700px) {
-            body {
-                padding: 1.2rem 0.8rem;
-            }
-
-            .glass-panel {
-                padding: 2rem 1.4rem;
-                border-radius: 36px;
-            }
-
+            body { padding: 1.2rem 0.8rem; }
+            .glass-panel { padding: 2rem 1.4rem; border-radius: 36px; }
             .profile {
                 flex-direction: column;
                 align-items: center;
                 text-align: center;
                 gap: 1.2rem;
             }
-
-            .profile h1 {
-                font-size: 2.8rem;
-            }
-
+            .profile h1 { font-size: 2.8rem; }
             .profile .title-tag {
                 justify-content: center;
-                font-size: 1rem;
-                padding: 0.5rem 1.4rem;
+                font-size: 0.95rem;
+                padding: 0.5rem 1.2rem;
             }
-
-            .ai-badge {
-                margin-left: 0;
-            }
-
-            .section-heading {
-                font-size: 1.8rem;
-            }
-
-            .section-heading i {
-                padding: 0.5rem;
-            }
-
-            .project-grid {
-                grid-template-columns: 1fr;
-                gap: 1.4rem;
-            }
-
-            .ai-zone {
-                padding: 2rem 1.5rem;
-                border-radius: 32px;
-            }
-
-            .ai-grid {
-                gap: 1.2rem;
-            }
-
-            .ai-grid-item .number {
-                font-size: 2.2rem;
-            }
-
-            .glass-panel {
-                border-radius: 32px;
-            }
+            .section-heading { font-size: 1.8rem; }
+            .section-heading i { padding: 0.5rem; }
+            .project-grid { grid-template-columns: 1fr; gap: 1.4rem; }
+            .ai-zone { padding: 2rem 1.5rem; border-radius: 32px; }
+            .ai-grid { gap: 1.2rem; }
+            .ai-grid-item .number { font-size: 2.2rem; }
+            .glass-panel { border-radius: 32px; }
+            .ai-stack { grid-template-columns: 1fr; }
         }
 
         @media (max-width: 420px) {
-            .profile h1 {
-                font-size: 2.2rem;
-            }
-
-            .section-heading {
-                font-size: 1.5rem;
-            }
-
-            .project-card {
-                padding: 1.6rem 1.3rem 1.4rem;
-                border-radius: 26px;
-            }
-
-            .project-card h3 {
-                font-size: 1.5rem;
-            }
+            .profile h1 { font-size: 2.2rem; }
+            .section-heading { font-size: 1.5rem; }
+            .project-card { padding: 1.6rem 1.3rem 1.4rem; border-radius: 26px; }
+            .project-card h3 { font-size: 1.5rem; }
         }
     </style>
 </head>
@@ -557,10 +630,10 @@
             <hgroup>
                 <h1>bari0xit</h1>
                 <div class="title-tag">
-                    <i class="fas fa-lightbulb" style="color:#0088cc;"></i>
-                    <span>Ý tưởng · Lập trình · AI</span>
-                    <span class="ai-badge">
-                        <i class="fas fa-robot"></i> Human + AI
+                    <i class="fas fa-code" style="color:#7c3aed;"></i>
+                    <span><span class="vibe-text">Vibe Coder</span> · DeepSeek + Gemini</span>
+                    <span class="vibe-badge">
+                        <i class="fas fa-bolt"></i> Vibe Coding
                     </span>
                 </div>
             </hgroup>
@@ -569,7 +642,7 @@
         <!-- ===== PROJECTS ===== -->
         <div class="section-heading">
             <i class="fas fa-cubes"></i>
-            <span>Công cụ từ ý tưởng & AI</span>
+            <span>Sản phẩm từ vibe coding</span>
         </div>
 
         <div class="project-grid">
@@ -586,7 +659,6 @@
                     <span>#ký tự</span>
                     <span>#câu</span>
                     <span>#tiếng Việt</span>
-                    <span>#công cụ nhanh</span>
                 </div>
                 <a href="https://baobao247.github.io/wordcounter/" target="_blank" rel="noopener" class="btn-project">
                     <span>Trải nghiệm</span>
@@ -594,19 +666,18 @@
                 </a>
             </article>
 
-            <!-- 2405 - Countdown -->
+            <!-- 2405 Countdown -->
             <article class="project-card">
                 <div class="card-icon"><i class="fas fa-hourglass-half"></i></div>
                 <h3>2405</h3>
                 <p class="project-desc">
-                    Trang đếm ngược đến sinh nhật của mình – đơn giản, dễ thương,
-                    do AI gợi ý cách hiển thị thời gian.
+                    Trang đếm ngược sinh nhật — đơn giản, dễ thương, AI gợi ý cách
+                    hiển thị thời gian mượt mà.
                 </p>
                 <div class="tool-tags">
                     <span>#đếm ngược</span>
                     <span>#sinh nhật</span>
                     <span>#countdown</span>
-                    <span>#UI đơn giản</span>
                 </div>
                 <a href="https://baobao247.github.io/2405/" target="_blank" rel="noopener" class="btn-project">
                     <span>Khám phá</span>
@@ -619,14 +690,13 @@
                 <div class="card-icon"><i class="fas fa-calculator"></i></div>
                 <h3>Tính Điểm</h3>
                 <p class="project-desc">
-                    Công cụ tính điểm trung bình, xếp loại học tập.
-                    Gợi ý cách tính thông minh từ AI.
+                    Tính điểm trung bình, xếp loại học tập. Công thức và edge case
+                    đều được AI kiểm tra lại.
                 </p>
                 <div class="tool-tags">
                     <span>#tính điểm</span>
                     <span>#xếp loại</span>
                     <span>#học sinh</span>
-                    <span>#giáo dục</span>
                 </div>
                 <a href="https://baobao247.github.io/tinhdiem/" target="_blank" rel="noopener" class="btn-project">
                     <span>Tính ngay</span>
@@ -639,13 +709,11 @@
                 <div class="card-icon"><i class="fas fa-pencil-alt"></i></div>
                 <h3>Trắc nghiệm</h3>
                 <p class="project-desc">
-                    Làm bài trắc nghiệm online với nhiều chủ đề.
-                    AI hỗ trợ tạo câu hỏi và chấm điểm tự động.
+                    Làm bài trắc nghiệm online đa chủ đề. AI hỗ trợ tạo câu hỏi
+                    và chấm điểm tự động.
                 </p>
                 <div class="tool-tags">
-                    <span>#trắc nghiệm</span>
                     <span>#quiz</span>
-                    <span>#câu hỏi</span>
                     <span>#ôn tập</span>
                     <span>#AI chấm điểm</span>
                 </div>
@@ -660,15 +728,13 @@
                 <div class="card-icon"><i class="fas fa-layer-group"></i></div>
                 <h3>Flashcard Pro</h3>
                 <p class="project-desc">
-                    Học từ vựng với flashcard thông minh. Tải file DOCX, TXT, CSV
-                    hoặc nhập thủ công. Lọc từ sai, lưu trữ cục bộ.
+                    Học từ vựng với flashcard thông minh. Tải DOCX / TXT / CSV,
+                    lọc từ sai, lưu trữ cục bộ.
                 </p>
                 <div class="tool-tags">
                     <span>#flashcard</span>
                     <span>#từ vựng</span>
-                    <span>#học thông minh</span>
                     <span>#tải file</span>
-                    <span>#lưu trữ</span>
                 </div>
                 <a href="https://baobao247.github.io/flashcard/" target="_blank" rel="noopener" class="btn-project">
                     <span>Bắt đầu học</span>
@@ -676,20 +742,19 @@
                 </a>
             </article>
 
-            <!-- ===== NEW: Poker Hold'em Pro ===== -->
+            <!-- Poker Hold'em Pro (icon fix: fa-spade) -->
             <article class="project-card">
                 <div class="card-icon"><i class="fas fa-spade"></i></div>
                 <h3>Poker Hold'em Pro</h3>
                 <p class="project-desc">
-                    Game poker Texas Hold'em với bot AI đối kháng. Cược, tố, theo,
-                    úp bài — trải nghiệm đấu trí hoàn chỉnh ngay trên trình duyệt.
+                    Texas Hold'em với bot AI đối kháng. Cược — tố — theo — úp bài.
+                    Logic game phức tạp, vibe code cùng DeepSeek.
                 </p>
                 <div class="tool-tags">
                     <span>#poker</span>
                     <span>#hold'em</span>
-                    <span>#game</span>
                     <span>#bot AI</span>
-                    <span>#đấu trí</span>
+                    <span>#game logic</span>
                 </div>
                 <a href="https://baobao247.github.io/pokerhe/" target="_blank" rel="noopener" class="btn-project">
                     <span>Chơi ngay</span>
@@ -697,20 +762,19 @@
                 </a>
             </article>
 
-            <!-- ===== NEW: Bài Cào Rix Pro ===== -->
+            <!-- Bài Cào Rix Pro -->
             <article class="project-card">
                 <div class="card-icon"><i class="fas fa-dice"></i></div>
                 <h3>Bài Cào Rix Pro</h3>
                 <p class="project-desc">
-                    Game bài cào Việt Nam với hiệu ứng "nặn bài" kịch tính.
-                    Hai chế độ Cào Rùa & Cào Cái, đặt cược linh hoạt.
+                    Bài cào Việt Nam với hiệu ứng "nặn bài" kịch tính. Hai chế độ
+                    Cào Rùa &amp; Cào Cái, đặt cược linh hoạt.
                 </p>
                 <div class="tool-tags">
                     <span>#bài cào</span>
                     <span>#3 cây</span>
                     <span>#nặn bài</span>
                     <span>#game Việt</span>
-                    <span>#kịch tính</span>
                 </div>
                 <a href="https://baobao247.github.io/3cao/" target="_blank" rel="noopener" class="btn-project">
                     <span>Nặn bài</span>
@@ -723,23 +787,73 @@
         <!-- ===== AI ZONE ===== -->
         <section class="ai-zone">
             <div class="ai-header">
-                <i class="fas fa-brain"></i>
-                <h2>AI cùng kiến tạo</h2>
+                <i class="fas fa-wand-magic-sparkles"></i>
+                <h2><span class="vibe-text">Vibe Coding</span> — nghĩ bằng tiếng Việt, code bằng AI</h2>
             </div>
+
             <p>
-                Mỗi công cụ ở trên đều bắt đầu từ một ý tưởng của mình, sau đó được
-                <strong>AI hỗ trợ</strong> lên ý tưởng chi tiết, gợi ý thuật toán,
-                tối ưu giao diện và đôi khi là viết những đoạn code khó nhằn.
-                Kết quả là những sản phẩm hoàn thiện nhanh hơn, sáng tạo hơn.
+                Mình không code theo kiểu truyền thống. Mình <strong>vibe code</strong> —
+                mô tả ý tưởng bằng ngôn ngữ tự nhiên, để AI lo phần implementation,
+                rồi tinh chỉnh lại cho tới khi ra đúng "vibe" mình muốn.
+                Mọi sản phẩm ở trên đều ra đời theo cách đó.
             </p>
+
+            <div class="ai-stack">
+                <!-- DeepSeek card -->
+                <div class="ai-stack-card deepseek">
+                    <div class="ai-stack-head">
+                        <div class="ai-stack-logo"><i class="fas fa-robot"></i></div>
+                        <div>
+                            <div class="ai-stack-name">DeepSeek</div>
+                            <div class="ai-stack-role">Primary copilot</div>
+                        </div>
+                    </div>
+                    <p>
+                        Cộng sự chính trong mọi dự án. Đảm nhiệm logic game, thuật toán
+                        phức tạp, refactor và debug. Đây là AI mình "vibe" nhiều nhất.
+                    </p>
+                    <div class="ai-stack-bar">
+                        <div class="ai-stack-bar-track">
+                            <div class="ai-stack-bar-fill"></div>
+                        </div>
+                        <span class="ai-stack-pct">~80%</span>
+                    </div>
+                </div>
+
+                <!-- Gemini card -->
+                <div class="ai-stack-card gemini">
+                    <div class="ai-stack-head">
+                        <div class="ai-stack-logo"><i class="fas fa-gem"></i></div>
+                        <div>
+                            <div class="ai-stack-name">Gemini</div>
+                            <div class="ai-stack-role">Secondary co-pilot</div>
+                        </div>
+                    </div>
+                    <p>
+                        Hỗ trợ những phần cần phân tích UI/UX, ý tưởng hình ảnh và
+                        một số edge case. Đóng vai trò "người phản biện" cho DeepSeek.
+                    </p>
+                    <div class="ai-stack-bar">
+                        <div class="ai-stack-bar-track">
+                            <div class="ai-stack-bar-fill"></div>
+                        </div>
+                        <span class="ai-stack-pct">~20%</span>
+                    </div>
+                </div>
+            </div>
+
             <div class="ai-grid">
                 <div class="ai-grid-item">
                     <div class="number">7</div>
                     <div class="label">công cụ đã ra mắt</div>
                 </div>
                 <div class="ai-grid-item">
-                    <div class="number">90%</div>
-                    <div class="label">code có AI đồng hành</div>
+                    <div class="number">80%</div>
+                    <div class="label">DeepSeek đồng hành</div>
+                </div>
+                <div class="ai-grid-item">
+                    <div class="number">20%</div>
+                    <div class="label">Gemini hỗ trợ</div>
                 </div>
                 <div class="ai-grid-item">
                     <div class="number">∞</div>
@@ -751,22 +865,29 @@
         <!-- ===== SKILLS ===== -->
         <div class="section-heading">
             <i class="fas fa-cog"></i>
-            <span>Phương thức & Kỹ năng</span>
+            <span>Phương thức &amp; Kỹ năng</span>
         </div>
         <div class="skill-set">
+            <span class="vibe-skill">🌊 Vibe Coding</span>
+            <span class="vibe-skill">🔮 DeepSeek (primary)</span>
+            <span class="vibe-skill">✨ Gemini (co-pilot)</span>
             <span>🧠 Prompt Engineering</span>
             <span>⚡ JavaScript / HTML / CSS</span>
-            <span>🤖 AI Iteration</span>
             <span>🎨 Thiết kế nhanh</span>
-            <span>📐 UI/UX (cùng Figma + AI)</span>
-            <span>🔄 Tích hợp API</span>
+            <span>📐 UI/UX (Figma + AI)</span>
             <span>🎮 Game Logic</span>
+            <span>🔄 Tích hợp API</span>
         </div>
 
         <!-- ===== FOOTER ===== -->
         <footer>
-            <span><i class="far fa-smile-wink"></i> từ ý tưởng của bari0xit</span>
-            <span><i class="fas fa-robot"></i> + sự trợ giúp của AI</span>
+            <span><i class="fas fa-code"></i> vibe coded bởi <strong>bari0xit</strong></span>
+            <span>
+                <i class="fas fa-robot"></i> với
+                <span class="ds-mark">DeepSeek</span>
+                &amp;
+                <span class="gm-mark">Gemini</span>
+            </span>
             <span><i class="fas fa-heart heart"></i> 2026</span>
         </footer>
 
