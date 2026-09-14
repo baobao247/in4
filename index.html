@@ -23,7 +23,6 @@
             -webkit-font-smoothing: antialiased;
         }
 
-        /* ===== ANIMATED GRADIENT TEXT ===== */
         @keyframes vibeShift {
             0%   { background-position: 0% 50%; }
             50%  { background-position: 100% 50%; }
@@ -40,7 +39,6 @@
             font-weight: 700;
         }
 
-        /* ===== GLASS PANEL ===== */
         .glass-panel {
             max-width: 1280px;
             width: 100%;
@@ -62,7 +60,6 @@
                 0 0 90px -18px rgba(0, 160, 255, 0.2) inset;
         }
 
-        /* ===== PROFILE ===== */
         .profile {
             display: flex;
             flex-wrap: wrap;
@@ -141,7 +138,6 @@
         }
         .vibe-badge i { color: #7c3aed; font-size: 0.95rem; }
 
-        /* ===== SECTION HEADING ===== */
         .section-heading {
             font-family: 'Space Grotesk', sans-serif;
             font-size: 2.2rem;
@@ -168,7 +164,6 @@
             border-radius: 2px;
         }
 
-        /* ===== PROJECT GRID ===== */
         .project-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(min(100%, 310px), 1fr));
@@ -231,6 +226,7 @@
             background: rgba(255, 255, 255, 0.78);
         }
 
+        /* ===== CARD ICON (Font Awesome) ===== */
         .card-icon {
             font-size: 2.6rem;
             margin-bottom: 1rem;
@@ -242,6 +238,25 @@
             display: inline-block;
         }
         .project-card:hover .card-icon {
+            transform: scale(1.1) translateY(-2px);
+        }
+
+        /* ===== CARD ICON (SVG — dùng cho Poker) ===== */
+        .card-icon.svg-icon {
+            background: none;
+            -webkit-background-clip: initial;
+            background-clip: initial;
+            color: initial;
+            display: inline-block;
+            line-height: 1;
+        }
+        .card-icon.svg-icon svg {
+            display: block;
+            width: 2.6rem;
+            height: 2.6rem;
+            transition: transform 0.3s ease;
+        }
+        .project-card:hover .card-icon.svg-icon svg {
             transform: scale(1.1) translateY(-2px);
         }
 
@@ -314,7 +329,6 @@
         .btn-project i { transition: transform 0.25s ease; }
         .btn-project:hover i { transform: translateX(3px); }
 
-        /* ===== AI ZONE ===== */
         .ai-zone {
             background: rgba(255, 255, 255, 0.35);
             border-radius: 44px;
@@ -360,7 +374,6 @@
         }
         .ai-zone p strong { color: #6d28d9; }
 
-        /* ===== VIBE FLOW ===== */
         .vibe-flow {
             display: grid;
             grid-template-columns: 1fr auto 1fr auto 1fr auto 1fr;
@@ -430,7 +443,6 @@
             opacity: 0.7;
         }
 
-        /* ===== AI STATS ===== */
         .ai-grid {
             display: flex;
             flex-wrap: wrap;
@@ -466,7 +478,6 @@
             display: inline-block;
         }
 
-        /* ===== METHOD (thay cho skills) ===== */
         .method-set {
             display: flex;
             flex-wrap: wrap;
@@ -497,7 +508,6 @@
             font-weight: 700;
         }
 
-        /* ===== FOOTER ===== */
         footer {
             margin-top: 4rem;
             text-align: center;
@@ -520,7 +530,6 @@
             font-weight: 700;
         }
 
-        /* ===== RESPONSIVE ===== */
         @media (max-width: 900px) {
             .vibe-flow {
                 grid-template-columns: 1fr 1fr;
@@ -566,7 +575,6 @@
 <body>
     <div class="glass-panel">
 
-        <!-- ===== HEADER ===== -->
         <header class="profile">
             <div class="avatar-frame">
                 <img src="https://i.ibb.co/23ByT0sb/1000183171.png" alt="bari0xit avatar" loading="lazy">
@@ -583,7 +591,6 @@
             </hgroup>
         </header>
 
-        <!-- ===== PROJECTS ===== -->
         <div class="section-heading">
             <i class="fas fa-cubes"></i>
             <span>Sản phẩm từ vibe coding</span>
@@ -610,7 +617,7 @@
                 </a>
             </article>
 
-            <!-- 2405 Countdown -->
+            <!-- 2405 -->
             <article class="project-card">
                 <div class="card-icon"><i class="fas fa-hourglass-half"></i></div>
                 <h3>2405</h3>
@@ -686,9 +693,19 @@
                 </a>
             </article>
 
-            <!-- Poker Hold'em Pro (icon fix: fa-spade) -->
+            <!-- Poker Hold'em Pro — SVG spade icon -->
             <article class="project-card">
-                <div class="card-icon"><i class="fas fa-spade"></i></div>
+                <div class="card-icon svg-icon">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                        <defs>
+                            <linearGradient id="spadeGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                                <stop offset="0%" stop-color="#7c3aed"/>
+                                <stop offset="100%" stop-color="#06b6d4"/>
+                            </linearGradient>
+                        </defs>
+                        <path fill="url(#spadeGrad)" d="M12 2 C 7 7, 3 11, 3 15 C 3 17.2, 4.8 19, 7 19 C 9 19, 10.6 17.6, 11.2 15.7 C 11 17.5, 10.4 19.5, 9.4 21 L 14.6 21 C 13.6 19.5, 13 17.5, 12.8 15.7 C 13.4 17.6, 15 19, 17 19 C 19.2 19, 21 17.2, 21 15 C 21 11, 17 7, 12 2 Z"/>
+                    </svg>
+                </div>
                 <h3>Poker Hold'em Pro</h3>
                 <p class="project-desc">
                     Texas Hold'em với bot AI đối kháng. Cược — tố — theo — úp bài,
@@ -727,7 +744,6 @@
 
         </div>
 
-        <!-- ===== AI ZONE ===== -->
         <section class="ai-zone">
             <div class="ai-header">
                 <i class="fas fa-wand-magic-sparkles"></i>
@@ -741,7 +757,6 @@
                 Mọi sản phẩm ở trên đều ra đời theo cách đó.
             </p>
 
-            <!-- Vibe flow 4 bước -->
             <div class="vibe-flow">
                 <div class="vibe-step">
                     <div class="vibe-step-num">1</div>
@@ -791,7 +806,6 @@
             </div>
         </section>
 
-        <!-- ===== METHOD ===== -->
         <div class="section-heading">
             <i class="fas fa-cog"></i>
             <span>Phương thức vibe code</span>
@@ -804,7 +818,6 @@
             <span>🔁 Tinh chỉnh đến khi đúng vibe</span>
         </div>
 
-        <!-- ===== FOOTER ===== -->
         <footer>
             <span><i class="fas fa-code"></i> vibe coded bởi <strong>bari0xit</strong></span>
             <span>
