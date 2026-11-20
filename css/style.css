@@ -2,43 +2,43 @@
    CSS VARIABLES & THEMING
    ============================================================ */
 :root {
-    --bg-page: radial-gradient(circle at 15% 20%, #b0e0ff, #c8e8ff 40%, #e8f4ff);
-    --text-primary: #003153;
-    --text-secondary: #144a6a;
-    --text-muted: #476a85;
-    --glass-bg: rgba(255, 255, 255, 0.65);
-    --glass-card: rgba(255, 255, 255, 0.76);
-    --glass-border: rgba(255, 255, 255, 0.85);
-    --glass-shadow: 0 32px 64px -24px rgba(0, 119, 182, 0.25);
-    --card-shadow: 0 12px 28px -10px rgba(0, 140, 210, 0.15);
-    --tag-bg: rgba(124, 58, 237, 0.08);
-    --tag-text: #5a3fa8;
-    --tag-border: rgba(124, 58, 237, 0.25);
-    --accent-grad: linear-gradient(135deg, #7c3aed, #06b6d4);
-    --orb-opacity: 0.38;
-    --input-bg: rgba(255, 255, 255, 0.9);
-    --pill-bg: rgba(255, 255, 255, 0.85);
-    --pill-border: rgba(226, 232, 240, 0.9);
+    --bg-page: #f8fafc;
+    --text-primary: #0f172a;
+    --text-secondary: #334155;
+    --text-muted: #64748b;
+    --glass-bg: rgba(255, 255, 255, 0.85);
+    --glass-card: #ffffff;
+    --glass-border: rgba(226, 232, 240, 0.8);
+    --glass-shadow: 0 20px 40px -15px rgba(15, 23, 42, 0.08);
+    --card-shadow: 0 4px 16px -2px rgba(15, 23, 42, 0.05), 0 1px 3px 0 rgba(15, 23, 42, 0.04);
+    --tag-bg: rgba(99, 102, 241, 0.08);
+    --tag-text: #4f46e5;
+    --tag-border: rgba(99, 102, 241, 0.18);
+    --accent-grad: linear-gradient(135deg, #4f46e5, #0ea5e9);
+    --orb-opacity: 0.15;
+    --input-bg: #ffffff;
+    --pill-bg: #ffffff;
+    --pill-border: #e2e8f0;
 }
 
 [data-theme="dark"] {
-    --bg-page: radial-gradient(circle at 15% 20%, #0d1527, #070c18 45%, #03050a);
-    --text-primary: #f1f5f9;
+    --bg-page: #0b0f19;
+    --text-primary: #f8fafc;
     --text-secondary: #cbd5e1;
     --text-muted: #94a3b8;
-    --glass-bg: rgba(15, 23, 42, 0.72);
-    --glass-card: rgba(30, 41, 59, 0.68);
-    --glass-border: rgba(255, 255, 255, 0.12);
-    --glass-shadow: 0 32px 64px -24px rgba(0, 0, 0, 0.7);
-    --card-shadow: 0 12px 28px -10px rgba(0, 0, 0, 0.45);
-    --tag-bg: rgba(167, 139, 250, 0.15);
-    --tag-text: #c4b5fd;
-    --tag-border: rgba(167, 139, 250, 0.3);
-    --accent-grad: linear-gradient(135deg, #8b5cf6, #22d3ee);
-    --orb-opacity: 0.22;
-    --input-bg: rgba(30, 41, 59, 0.85);
-    --pill-bg: rgba(30, 41, 59, 0.8);
-    --pill-border: rgba(255, 255, 255, 0.12);
+    --glass-bg: rgba(15, 23, 42, 0.75);
+    --glass-card: rgba(24, 33, 54, 0.7);
+    --glass-border: rgba(255, 255, 255, 0.08);
+    --glass-shadow: 0 24px 60px -15px rgba(0, 0, 0, 0.6);
+    --card-shadow: 0 4px 20px -2px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+    --tag-bg: rgba(129, 140, 248, 0.12);
+    --tag-text: #a5b4fc;
+    --tag-border: rgba(129, 140, 248, 0.22);
+    --accent-grad: linear-gradient(135deg, #6366f1, #38bdf8);
+    --orb-opacity: 0.14;
+    --input-bg: rgba(30, 41, 59, 0.8);
+    --pill-bg: rgba(24, 33, 54, 0.85);
+    --pill-border: rgba(255, 255, 255, 0.1);
 }
 
 * { margin: 0; padding: 0; box-sizing: border-box; }
